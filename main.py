@@ -21,6 +21,7 @@ df = pandas.DataFrame(columns=["nationname", "pei", "mil"])
 for nation in allNationsInAlliance.nations:
     allNationsInAllianceList.append(nation.id)
 
+st.write("Yes. the page works. its loading.")
 
 
 def nationInfo(nationId):
@@ -40,6 +41,4 @@ for nation in allNationsInAllianceList:
 st.title("Audit sheet")
 st.dataframe(df, width=1024, height=768)
 
-
 st.write("Average PEI: " + str(df["pei"].astype(float).mean()))
-st.write("Average Mil: " + str(df["mil"].astype(float).mean()))
