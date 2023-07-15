@@ -1,4 +1,4 @@
 pnwkit
 pandas
-requests
+requests v2.25.0
 bs4
