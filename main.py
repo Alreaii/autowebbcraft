@@ -42,3 +42,6 @@ st.title("Audit sheet")
 st.dataframe(df, width=1024, height=768)
 
 st.write("Average PEI: " + str(df["pei"].astype(float).mean()))
+
+st.write("Nations with PEI below 0.9")
+st.dataframe(df[df["pei"].astype(float) < 0.9], width=1024, height=768)
