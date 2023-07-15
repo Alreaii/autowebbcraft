@@ -39,7 +39,7 @@ for nation in allNationsInAllianceList:
 
 st.title("Audit sheet")
 st.dataframe(df, width=1024, height=768)
-#sum of all pei
 
 
-st.text(f"Average PEI:", int(df["pei"].sum())/len(allNationsInAllianceList))
+st.write("Average PEI: " + str(df["pei"].astype(float).mean()))
+st.write("Average Mil: " + str(df["mil"].astype(float).mean()))
