@@ -8,7 +8,7 @@ kit = pnwkit.QueryKit(st.secrets["apikey"]) #add ur own api key here
 
 # 88039652 2022-09-18 16:58:02+00:00 Safekeeping  35000000 0 0 0 0 0 0 0 0 0 0 # example output
 
-allianceId = 10498 #change alliance id here
+allianceId = st.text_input("Alliance ID", value="10498", max_chars=None, key=None)
 
 baseurl = "https://webbcraft.co.uk/pw/pwpei2.php?data=&land=&nation="
 
