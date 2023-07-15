@@ -16,7 +16,7 @@ baseurl = "https://webbcraft.co.uk/pw/pwpei2.php?data=&land=&nation="
 
 allNationsInAllianceList = []
 allNationsInAlliance = kit.query("nations", {"alliance_id": allianceId}, "id nation_name").get()
-df = pandas.DataFrame(columns=["nationname", "pei", "mil"])
+df = pandas.DataFrame(columns=["nationname", "pei", "mil", "nationref"])
 
 for nation in allNationsInAlliance.nations:
     allNationsInAllianceList.append(nation.id)
@@ -33,7 +33,8 @@ def nationInfo(nationId):
     table_pei = table.find_all("tr")[1].find_all("td")[4].text
     table_nationname = table.find_all("tr")[1].find_all("td")[1].text
     table_mil = table.find_all("tr")[1].find_all("td")[11].text
-    df.loc[len(df)] = [table_nationname, table_pei, table_mil]
+    nationref = table.find_all("tr")[1].find_all("td")[1].find("a")["href"]
+    df.loc[len(df)] = [table_nationname, table_pei, table_mil, nationref]
 
 for nation in allNationsInAllianceList:
     nationInfo(nation)
