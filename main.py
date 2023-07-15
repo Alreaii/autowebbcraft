@@ -42,4 +42,4 @@ st.dataframe(df, width=1024, height=768)
 #sum of all pei
 
 
-st.text(f"Average PEI:", df["pei"].sum()/len(allNationsInAllianceList))
+st.text(f"Average PEI:", int(df["pei"].sum())/len(allNationsInAllianceList))
