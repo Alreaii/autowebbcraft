@@ -1,5 +1,4 @@
 import pnwkit
-import requests
 import streamlit as st
 from bs4 import BeautifulSoup
 import pandas
@@ -42,14 +41,14 @@ async def asyncNationInfo(nationId):
     nationref = table.find_all("tr")[1].find_all("td")[1].find("a")["href"]
     df.loc[len(df)] = [table_nationname, table_pei, table_mil, nationref]
 
-async def asyncNationsInfo(nationIds):
+def nationInfo(nationId):
+    asyncio.run(asyncNationInfo(nationId))
+
+async def nationsInfo(nationIds):
     for nationId in nationIds:
-        thread = threading.Thread(target=asyncNationInfo, args=(nationId,))
+        thread = threading.Thread(target=nationInfo, args=(nationId,))
         thread.daemon = True
         thread.start()
-
-def nationsInfo(nations):
-    asyncio.run(asyncNationInfo(nations))
 
 nationsInfo(allNationsInAllianceList)
 
