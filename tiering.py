@@ -16,4 +16,8 @@ treaties = []
 for alliance in top50aa.alliances:
     aalist.append(alliance.name)
 
-print(aalist)
+#return list of treaties for every alliance
+
+for alliance in top50aa.alliances:
+    q = kit.query("alliances", {"id": alliance.id}, "treaties").get()
+    
