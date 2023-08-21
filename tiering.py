@@ -4,7 +4,7 @@ import streamlit as st
 from bs4 import BeautifulSoup
 import pandas
 
-kit = pnwkit.QueryKit("26fcc93af7dfda")
+kit = pnwkit.QueryKit("")
 
 top50aa = kit.query("alliances", 
                     {
